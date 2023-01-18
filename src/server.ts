@@ -11,6 +11,7 @@ const PORT: number = 3333;
 app.get('/Hello', () => 'Hello World');
 
 app.get('/habits', async () => {
+  // Aqui capturamos do banco de dados todos os valores da model habit
   const habits = await prisma.habit.findMany();
 
   return habits;
