@@ -1,5 +1,6 @@
 import fastify from "fastify";
 import { PrismaClient } from "@prisma/client";
+import cors from "@fastify/cors"
 
 const app = fastify();
 
@@ -7,6 +8,9 @@ const app = fastify();
 const prisma = new PrismaClient();
 
 const PORT: number = 3333;
+
+// Aqui possibilitamos que  o front tenha acesso ao back. Saiba mais: https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS
+app.register(cors);
 
 app.get('/Hello', () => 'Hello World');
 
